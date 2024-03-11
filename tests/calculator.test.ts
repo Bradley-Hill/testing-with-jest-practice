@@ -19,3 +19,11 @@ test("Expect calculator.multiply(5,5) to return 25", () => {
 test("Expect calculator.multiply(3,0) to return 0", () => {
   expect(calculator.multiply(3, 0)).toBe(0);
 });
+
+test("Expect calculator.divide(20,2) to return 10", () => {
+  expect(calculator.divide(20, 2)).toBe(10);
+});
+
+test("Expect calculator.divide(20,0) to return Infinity", () => {
+  expect(calculator.divide(20, 0)).toBe(Infinity);
+});

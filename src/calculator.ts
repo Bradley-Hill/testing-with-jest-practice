@@ -15,5 +15,8 @@ const calculator: Calculator = {
   multiply(x: number, y: number) {
     return x * y;
   },
+  divide(x: number, y: number) {
+    return x / y;
+  },
 };
 module.exports = calculator;
