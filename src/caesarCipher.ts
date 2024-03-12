@@ -58,11 +58,22 @@ function caesarCipher(string: string, number: number): string {
   };
 
   let shiftedString = "";
-  let capitalString = string.toUpperCase();
 
-  for (let i = 0; i < capitalString.length; i++) {
+  for (let i = 0; i < string.length; i++) {
+    let isLowerCase = false;
+
+    if (string[i].charCodeAt(0) >= 65 && string[i].charCodeAt(0) <= 90) {
+      isLowerCase = false;
+    } else if (
+      string[i].charCodeAt(0) >= 97 &&
+      string[i].charCodeAt(0) <= 122
+    ) {
+      isLowerCase = true;
+    }
+
+    let currentCharUpper = string[i].toUpperCase();
     let numberToShift =
-      alphabetDict[capitalString[i] as keyof typeof alphabetDict];
+      alphabetDict[currentCharUpper as keyof typeof alphabetDict];
     let newNumber = numberToShift + number;
     if (newNumber > 26) {
       newNumber = newNumber - 26;
@@ -70,9 +81,11 @@ function caesarCipher(string: string, number: number): string {
       newNumber = 26 + newNumber;
     }
     let cipherLetter = numberDict[newNumber as keyof typeof numberDict];
+    cipherLetter = isLowerCase
+      ? cipherLetter.toLowerCase()
+      : cipherLetter.toUpperCase();
     shiftedString += cipherLetter;
   }
-  shiftedString = shiftedString.toLowerCase();
 
   return shiftedString;
 }

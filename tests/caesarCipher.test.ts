@@ -20,3 +20,7 @@ test("Expect the word to be shifted backwards if negative number is provided", (
 test("Expect the word to be shifted backwards if large negative number is provided", () => {
   expect(caesarCipher("rupert", -11)).toBe("gjetgi");
 });
+
+test("Expect the uppercase and lowercase letters to be in the same case after shifting", () => {
+  expect(caesarCipher("Barry", 2)).toBe("Dctta");
+});
