@@ -24,3 +24,9 @@ test("Expect the word to be shifted backwards if large negative number is provid
 test("Expect the uppercase and lowercase letters to be in the same case after shifting", () => {
   expect(caesarCipher("Barry", 2)).toBe("Dctta");
 });
+
+test("Expect the string to retain spacing and punctuation after shifting", () => {
+  expect(caesarCipher("I'm full of, Punctuation!!", 2)).toBe(
+    "K'o hwnn qh, Rwpevwcvkqp!!"
+  );
+});

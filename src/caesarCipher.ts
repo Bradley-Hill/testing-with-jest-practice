@@ -62,6 +62,11 @@ function caesarCipher(string: string, number: number): string {
   for (let i = 0; i < string.length; i++) {
     let isLowerCase = false;
 
+    if (/[^A-Za-z0-9]/.test(string[i])) {
+      shiftedString += string[i];
+      continue;
+    }
+
     if (string[i].charCodeAt(0) >= 65 && string[i].charCodeAt(0) <= 90) {
       isLowerCase = false;
     } else if (
