@@ -6,6 +6,11 @@ interface Analysis {
 }
 
 function createAnalysisObject(array: number[]) {
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] !== "number") {
+      throw new Error(" Array contains non-number, no bueno.");
+    }
+  }
   let length = array.length;
   let average = 0;
   for (let i = 0; i < array.length; i++) {

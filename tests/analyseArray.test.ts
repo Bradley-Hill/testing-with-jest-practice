@@ -21,3 +21,7 @@ test("Expects the function to return an Object with the min property", () => {
 test("Expects function to return an Object with the max value within the array", () => {
   expect(Analysis([1, 1, 4, 5, 8, 17])).toHaveProperty("max", 17);
 });
+
+test("To throw an error with a non-number within the array", () => {
+  expect(() => Analysis([1, 1, 4, 5, 8, 17, "Barry"])).toThrow(Error);
+});
